@@ -1,0 +1,37 @@
+Instalação Cypress:
+
+1. Instalar Node. 
+	* Checar: node --version
+	* npm --version
+2. Instalar VS Code
+3. Configuração de ambiente
+	* Extensão: Cypress Snippets by Andrew Smith (Aumenta a produtividade usando autocompletes)
+	* Extensão: ES6 Mocha Snippets by Cory Noonan
+	* Extensão: Material Icon Theme by Philipp Kief 
+	* Extensão: Cuke Step Definition Generator by Muralidharan Rajendran (Para facilitar no Cucumber)
+4. Cria um diretório para o projeto e abre no VS Code
+5. Executa no terminal do VS Code:
+	* npm init --yes > Cria o projeto Node
+	* npm install -D Cypress@4.10.0	
+6. Instalar biblioteca para geração de dados aleatórios:
+	* npm install -D chance
+7. Instalar biblioteca para upload de arquivos:
+	* npm install -D cypress-file-upload
+	* inserir import em support > index.js ==> import 'cypress-file-upload'
+8. Instalando biblioteca para Processamento Cucumber:
+	* Cucumber Pre Processor: npm install -D cypress-cucumber-preprocessor
+	* Importar o plugin: plugins > index.js > const cucumber = require('cypress-cucumber-preprocessor').default
+	* Dentro do module.exports > on('file:preprocessor', cucumber))
+	* Add a configuração no package.json:
+		"cypress-cucumber-preprocessor":{
+			"nonGlobalStepDefinitions": true
+		}
+	* Add configuração para que o Cypress busque os steps de features n o lugar certo
+		- Cria um cypress-cucumber.json na raiz do projeto e add as configurações q estao no cypress.json nesse arquivo junto
+		com:
+		{
+			"testFiles": "**/*.feature"
+		}
+	* Add extensão: Cucumber (Gherkin) Full Support
+	
+ 
