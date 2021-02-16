@@ -40,10 +40,12 @@ jobs:
       
       # Executar os testes usando o Cucumber
       - run: npm run cy:run:cucumber
+        continue-on-error: true
       
       # Gerar o relatorio
       - run: npm run report:cucumber
-      
+        continue-on-error: true
+        
       # Publicar relatorio em HTML
       - name: Deploy to GithubPages
         uses: JamesIves/github-pages-deploy-action@4.0.0
